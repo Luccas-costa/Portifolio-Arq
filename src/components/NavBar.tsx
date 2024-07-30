@@ -59,8 +59,8 @@ export default function NavBar({ LanguageType }: NavBarProps) {
   }, [Itmenuopen]);
 
   return (
-    <div className='w-full'>
-      <div className='w-full h-16 bg-fwhite dark:bg-neutral-950 px-6 menuburger:px-8 py-2 flex items-center justify-between relative'>
+    <div className='w-full shadow-lg'>
+      <div className='w-full h-16 bg-fwhite dark:bg-neutral-950 px-6 menuburger:px-8 py-2 flex items-center justify-between relative shadow-lg'>
         <div>
           {/* ESSA DAQUI MEXE NO TEMA CLARO */}
           <div className='dark:hidden'>
