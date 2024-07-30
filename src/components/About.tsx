@@ -43,7 +43,9 @@ export default function About({ LanguageType }: AboutProps) {
           <div className='text-5xl font-bold mb-4'>
             {"->"} {controlLanguage?.About.title}
           </div>
-          <div className='text-3xl'>{controlLanguage?.About["about-me"]}</div>
+          <div className='text-2xl screen3:text-3xl'>
+            {controlLanguage?.About["about-me"]}
+          </div>
         </div>
       </div>
     </div>

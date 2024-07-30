@@ -4,15 +4,30 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 
-const images = [
-  "/Fotos/ideia13.jpg",
-  "/Fotos/ideia4.jpg",
-  // Adicione mais URLs de imagens aqui
-];
+const images = ["/Fotos/ideia13.jpg", "/Fotos/ideia4.jpg"];
+const images2 = ["/Fotos/ideia1A1400.jpg", "/Fotos/ideia4A1400.jpg"];
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [imageList, setImageList] = useState(images);
+
+  useEffect(() => {
+    const updateImageList = () => {
+      if (window.innerWidth < 1400) {
+        setImageList(images2);
+      } else {
+        setImageList(images);
+      }
+    };
+
+    updateImageList(); // Verifique o tamanho da janela na montagem
+    window.addEventListener("resize", updateImageList);
+
+    return () => {
+      window.removeEventListener("resize", updateImageList);
+    };
+  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -25,12 +40,12 @@ export default function Hero() {
   }, [currentIndex, isDragging]);
 
   const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % imageList.length);
   };
 
   const prevSlide = () => {
     setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + images.length) % images.length
+      (prevIndex) => (prevIndex - 1 + imageList.length) % imageList.length
     );
   };
 
@@ -51,14 +66,14 @@ export default function Hero() {
         animate={{ x: -currentIndex * 100 + "%" }}
         transition={{ type: "tween", duration: 0.5, ease: "easeInOut" }} // Ajuste a transição aqui
         drag='x'
-        dragConstraints={{ left: -images.length * 100, right: 0 }}
+        dragConstraints={{ left: -imageList.length * 100, right: 0 }}
         onDragStart={() => setIsDragging(true)}
         onDragEnd={(event, info) => {
           handleDrag(event, info);
           setIsDragging(false);
         }}
       >
-        {images.map((src, index) => (
+        {imageList.map((src, index) => (
           <div key={index} className='flex-shrink-0 w-full h-full'>
             <Image
               src={src}

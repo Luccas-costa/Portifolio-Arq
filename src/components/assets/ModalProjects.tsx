@@ -1,3 +1,4 @@
+import { X } from "@phosphor-icons/react/dist/ssr";
 import React from "react";
 
 interface ModalProjectsProps {
@@ -18,9 +19,9 @@ export default function ModalProjects({
       <div className='relative bg-white dark:bg-gray-800 p-4 rounded'>
         <button
           onClick={onClose}
-          className='absolute top-0 right-0 mt-4 mr-4 text-black dark:text-white'
+          className='absolute -top-8 -right-8 mt-4 mr-4 bg-white/20 p-2 rounded-xl text-black dark:text-white'
         >
-          X
+          <X size={30} weight='bold' />
         </button>
         {children}
       </div>
