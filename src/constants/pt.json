@@ -11,52 +11,10 @@
         },
         "Login": "Login"
     },
-    "hero": {
-      "olaMundo": "Olá Mundo!",
-      "euSou": "eu sou",
-      "nome": "Luccas Costa",
-      "descricao": "Sou um desenvolvedor Full Stack, atualmente residindo em São Paulo. Tenho 17 anos, sendo 3 na área e sou um entusiasta apaixonado por programação e tecnologia.",
-        "Modal": {     
-            "modalTrigger": "Contato",
-            "modalContentTitle": "Minhas",
-            "modalContentTitleSpan": "conexões!",
-            "modalContentInstruction": "Se prefere a praticidade e",
-            "modalContentInstructionSpan1": "Certeza!",
-            "modalContentInstructionSpan2": "de resposta",
-            "modalContentInstructionSpan3": "Rapida!",
-            "modalContentInstructionSpan4": "Me mande uma mensagem clicando no botão abaixo.",
-            "modalFooterExit": "Sair",
-            "modalFooterSendMessage": "Mandar uma mensagem"          
-        }
-    },
-    "Languages": {
-        "title": "Quais Linguagens eu trabalho?"
-    },
-    "Projetos": {
-        "title": "Projetos",
-        "description": "Esses são alguns de meus projetos atuais, pessoais ou open sources.",
-        "CardAc": {
-            "option1": "Ver agora →",
-            "option2": "GitHub"
-        },
-        "Card1": {
-            "title": "Teko's bag",
-            "description": "E-commerce de produtos de moda, desenvolvido com Next.js, Tailwind, React, Typescript e Clerk."
-        },
-        "Card2": {
-            "title": "Ainda nao tem",
-            "description": "Em Breve  Em Breve  Em Breve  Em Breve  Em Breve  Em Breve  Em Breve"
-        },
-        "Card3": {
-            "title": "Ainda nao tem",
-            "description": "Em Breve  Em Breve  Em Breve  Em Breve  Em Breve  Em Breve  Em Breve"
-        }
-    },
+    "hero": {},
+    "Projetos": {},
     "About": {
         "title": "Sobre mim",
-        "description": "Vamos falar um pouco sobre mim.",
-        "question": "E afinal quem sou",
-        "question-span": " EU?",
         "about-me": "Sou um desenvolvedor Full Stack. Sou natural de Minas Gerais, mas vivo hoje em São Paulo. E trabalho como um desenvolvedor web. Tenho 17 anos e sou apaixonado por tecnologia, já tendo 3 anos na área. Quando não estou em casa, gosto de estar nos tatames, sou atleta de jiu-jitsu, variados na área e estou em busca de novos desafios."
     },
     "Questions": {

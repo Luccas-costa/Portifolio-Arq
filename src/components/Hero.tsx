@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
+import { motion } from "framer-motion";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
 
 const images = [
@@ -12,7 +12,6 @@ const images = [
 
 export default function Hero() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const controls = useAnimation();
   const [isDragging, setIsDragging] = useState(false);
 
   useEffect(() => {
@@ -72,16 +71,16 @@ export default function Hero() {
         ))}
       </motion.div>
       <button
-        className='absolute top-1/2 left-4 transform -translate-y-1/2 p-4 bg-white/20 rounded-full shadow-md'
+        className='absolute top-1/2 left-4 transform -translate-y-1/2 p-4 bg-fwhite/20 dark:bg-black/20 rounded-full shadow-md'
         onClick={prevSlide}
       >
-        <CaretLeft size={30} />
+        <CaretLeft size={30} className='text-white dark:text-black' />
       </button>
       <button
-        className='absolute top-1/2 right-4 transform -translate-y-1/2 p-4 bg-white/20 rounded-full shadow-md'
+        className='absolute top-1/2 right-4 transform -translate-y-1/2 p-4 bg-fwhite/20 dark:bg-black/20 rounded-full shadow-md'
         onClick={nextSlide}
       >
-        <CaretRight size={30} />
+        <CaretRight size={30} className='text-white dark:text-black' />
       </button>
     </div>
   );

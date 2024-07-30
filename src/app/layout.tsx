@@ -5,8 +5,8 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Esb Portifolio",
-  description: "",
+  title: "Anne Matarazzo | Portfólio ",
+  description: "Portfólio da arquiteta Anne Matarazzo",
 };
 
 export default function RootLayout({

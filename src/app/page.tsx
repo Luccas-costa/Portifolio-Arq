@@ -1,5 +1,8 @@
+import About from "@/components/About";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import NavBar from "@/components/NavBar";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -10,6 +13,9 @@ export default function Home() {
       <div style={{ zIndex: 1, position: "relative" }}>
         <Hero />
       </div>
+      <About LanguageType='pt' />
+      <Projects />
+      <Footer />
     </main>
   );
 }
