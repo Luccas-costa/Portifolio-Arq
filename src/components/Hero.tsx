@@ -3,8 +3,10 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { CaretLeft, CaretRight } from "@phosphor-icons/react/dist/ssr";
+import Image1 from "../../public/Fotos/ideia13.jpg";
+import Image2 from "../../public/Fotos/ideia4.jpg";
 
-const images = ["/Fotos/ideia13.jpg", "/Fotos/ideia4.jpg"];
+const images = [Image1, Image2];
 const images2 = ["/Fotos/ideia1A1400.jpg", "/Fotos/ideia4A1400.jpg"];
 
 export default function Hero() {
@@ -12,22 +14,22 @@ export default function Hero() {
   const [isDragging, setIsDragging] = useState(false);
   const [imageList, setImageList] = useState(images);
 
-  useEffect(() => {
-    const updateImageList = () => {
-      if (window.innerWidth < 1400) {
-        setImageList(images2);
-      } else {
-        setImageList(images);
-      }
-    };
+  // useEffect(() => {
+  //   const updateImageList = () => {
+  //     if (window.innerWidth < 1400) {
+  //       setImageList(images2);
+  //     } else {
+  //       setImageList(images);
+  //     }
+  //   };
 
-    updateImageList(); // Verifique o tamanho da janela na montagem
-    window.addEventListener("resize", updateImageList);
+  //   updateImageList(); // Verifique o tamanho da janela na montagem
+  //   window.addEventListener("resize", updateImageList);
 
-    return () => {
-      window.removeEventListener("resize", updateImageList);
-    };
-  }, []);
+  //   return () => {
+  //     window.removeEventListener("resize", updateImageList);
+  //   };
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -37,6 +39,7 @@ export default function Hero() {
     }, 4000); // Avança o slide a cada 4 segundos
 
     return () => clearInterval(interval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isDragging]);
 
   const nextSlide = () => {
@@ -75,13 +78,16 @@ export default function Hero() {
       >
         {imageList.map((src, index) => (
           <div key={index} className='flex-shrink-0 w-full h-full'>
-            <Image
-              src={src}
-              alt={`Slide ${index}`}
-              width={1920}
-              height={500}
-              layout='responsive'
-            />
+            <div
+              className={`2xl:w-[100vw] 2xl:h-[90vh] xl:h-[90vh] lg:h-[90vh] md:h-[85vh] sm:h-[85vh] h-[85vh] relative overflow-hidden shadow-2xl`}
+            >
+              <Image
+                src={src}
+                alt='Imagem de fundo principal'
+                layout='fill'
+                objectFit='cover'
+              />
+            </div>
           </div>
         ))}
       </motion.div>
