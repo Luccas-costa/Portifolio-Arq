@@ -13,8 +13,8 @@ export default function Footer() {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
   return (
-    <div className='bg-white dark:bg-neutral-950  text-white/30 text-sm'>
-      <hr className='w-full bg-white/10 border border-white/10' />
+    <div className='bg-white dark:bg-neutral-950  text-neutral-950/50 dark:text-white/30 text-sm'>
+      <hr className='w-full bg-neutral-950/30 dark:bg-white/10 border border-neutral-950/30 dark:border-white/10' />
       <div className='flex justify-between items-center p-8'>
         <div>© 2024 Anne Matarazzo. All rights reserved.</div>
         <div className='flex space-x-2'>

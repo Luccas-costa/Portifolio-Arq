@@ -5,23 +5,22 @@ import { CaretRight } from "@phosphor-icons/react/dist/ssr";
 import BurgerMenuIdioma from "./BurgerMenuIdioma";
 
 interface BurguerMenuProps {
-  textos: { label: string; href: string }[];
+  textos: { label: string }[];
   handlerclose: () => void;
+  hanlderidioma: (number: Number) => void;
 }
 
 export default function BurguerMenu({
   handlerclose,
   textos,
+  hanlderidioma,
 }: BurguerMenuProps) {
   const [isVisible, setIsVisible] = useState(true);
   const [OpenLanguage, setOpenLanguage] = useState(false);
 
   const burgermenutxt1 = textos[4].label;
-  const href1 = textos[4].href;
   const burgermenutxt2 = textos[5].label;
-  const href2 = textos[5].href;
   const burgermenutxt3 = textos[6].label;
-  const href3 = textos[6].href;
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -95,11 +94,9 @@ export default function BurguerMenu({
               <div className='absolute right-0 top-4 translate-x-[95%]'>
                 <BurgerMenuIdioma
                   texto1={burgermenutxt1}
-                  href1={href1}
                   texto2={burgermenutxt2}
-                  href2={href2}
                   texto3={burgermenutxt3}
-                  href3={href3}
+                  hanlderidioma={hanlderidioma}
                 />
               </div>
             )}

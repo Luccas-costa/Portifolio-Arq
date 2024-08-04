@@ -1,14 +1,14 @@
 /* NavBar.module.css */
 
-.navItem {
+.navItemdark {
   position: relative;
   font-weight: 600;
   cursor: pointer;
   transition: color 0.3s ease-in-out;
 }
 
-.navItem::before,
-.navItem::after {
+.navItemdark::before,
+.navItemdark::after {
   content: "";
   position: absolute;
   bottom: -2px;
@@ -19,16 +19,51 @@
   opacity: 0; /* Começa com opacidade zero para esconder */
 }
 
-.navItem::before {
+.navItemdark::before {
   left: 50%;
 }
 
-.navItem::after {
+.navItemdark::after {
   right: 50%;
 }
 
-.navItem:hover::before,
-.navItem:hover::after {
+.navItemdark:hover::before,
+.navItemdark:hover::after {
+  width: 50%; /* Ajuste a largura conforme necessário */
+  opacity: 1; /* Mostra os pseudo-elementos ao fazer hover */
+}
+
+/* claro */
+
+.navItemlight {
+  position: relative;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.navItemlight::before,
+.navItemlight::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  width: 0;
+  height: 2px;
+  background-color: black;
+  transition: width 0.3s ease-in-out;
+  opacity: 0; /* Começa com opacidade zero para esconder */
+}
+
+.navItemlight::before {
+  left: 50%;
+}
+
+.navItemlight::after {
+  right: 50%;
+}
+
+.navItemlight:hover::before,
+.navItemlight:hover::after {
   width: 50%; /* Ajuste a largura conforme necessário */
   opacity: 1; /* Mostra os pseudo-elementos ao fazer hover */
 }

@@ -15,3 +15,14 @@ html, body {
 ::-webkit-scrollbar-thumb {
     background-color: #4F21A1;
 }
+
+/* degrades tailwind */
+
+@layer utilities {
+    .bg-degrade-contato-light {
+      background: linear-gradient(to top, #E4E4E7 30%, #DC9303);
+    }
+    .dark .bg-degrade-contato-dark {
+      background: linear-gradient(to top, #0A0A0A 30%, #463485);
+    }
+}

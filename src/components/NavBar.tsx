@@ -15,12 +15,14 @@ import BurguerMenu from "./assets/BurguerMenu";
 import pt from "@/constants/pt.json";
 import en from "@/constants/en.json";
 import es from "@/constants/es.json";
+import { SignedOut, SignInButton, SignedIn, UserButton } from "@clerk/nextjs";
 
 interface NavBarProps {
   LanguageType: string;
+  hanlderidioma: (number: Number) => void;
 }
 
-export default function NavBar({ LanguageType }: NavBarProps) {
+export default function NavBar({ LanguageType, hanlderidioma }: NavBarProps) {
   const [Itmenuopen, setItmenuopen] = useState(false);
   const [OpenIdioma, setOpenIdioma] = useState(false);
   const checkboxRef = useRef<HTMLInputElement>(null);
@@ -83,23 +85,24 @@ export default function NavBar({ LanguageType }: NavBarProps) {
         </div>
         <div>
           <ul className='hidden menuburger:flex items-center gap-4'>
+            {/* ESSA DAQUI MEXE NO TEMA DARK */}
             <li
-              className={` ${styles.navItem} dark:text-white text-neutral-900`}
+              className={`hidden dark:block ${styles.navItemdark} dark:text-white text-neutral-900`}
             >
               {controlLanguage?.navbar.Projetos}
             </li>
             <li
-              className={` ${styles.navItem} dark:text-white text-neutral-900`}
+              className={`hidden dark:block ${styles.navItemdark} dark:text-white text-neutral-900`}
             >
               {controlLanguage?.navbar.Sobre}
             </li>
             <li
-              className={` ${styles.navItem} dark:text-white text-neutral-900`}
+              className={`hidden dark:block ${styles.navItemdark} dark:text-white text-neutral-900`}
             >
               {controlLanguage?.navbar.Contato}
             </li>
             <li
-              className={`${styles.navItem} dark:text-white text-neutral-900 relative flex gap-1 items-center`}
+              className={`hidden dark:flex ${styles.navItemdark} dark:text-white text-neutral-900 relative gap-1 items-center`}
               onClick={() => setOpenIdioma(!OpenIdioma)}
             >
               {controlLanguage?.navbar.Idioma}{" "}
@@ -111,37 +114,95 @@ export default function NavBar({ LanguageType }: NavBarProps) {
               {OpenIdioma && (
                 <div className='absolute top-6 right-0 z-20 mt-2'>
                   <MenuIdioma
+                    hanlderidioma={hanlderidioma}
                     textos={[
                       {
                         label:
                           controlLanguage?.navbar.MenuIdioma.Portugues ||
                           "Português",
-                        href: "/",
                       },
                       {
                         label:
                           controlLanguage?.navbar.MenuIdioma.English ||
                           "English",
-                        href: "/en",
                       },
                       {
                         label:
                           controlLanguage?.navbar.MenuIdioma.Español ||
                           "Español",
-                        href: "/es",
                       },
                     ]}
                   />
                 </div>
               )}
             </li>
+
+            {/* ESSA DAQUI MEXE NO TEMA CLARO */}
+            <li
+              className={`block dark:hidden ${styles.navItemlight} dark:text-white text-neutral-900`}
+            >
+              {controlLanguage?.navbar.Projetos}
+            </li>
+            <li
+              className={`block dark:hidden ${styles.navItemlight} dark:text-white text-neutral-900`}
+            >
+              {controlLanguage?.navbar.Sobre}
+            </li>
+            <li
+              className={`block dark:hidden ${styles.navItemlight} dark:text-white text-neutral-900`}
+            >
+              {controlLanguage?.navbar.Contato}
+            </li>
+            <li
+              className={`block dark:hidden ${styles.navItemlight} dark:text-white text-neutral-900 relative flex gap-1 items-center`}
+              onClick={() => setOpenIdioma(!OpenIdioma)}
+            >
+              {controlLanguage?.navbar.Idioma}{" "}
+              <span
+                className={`mt-1 transition-all ${OpenIdioma && "rotate-180"}`}
+              >
+                <CaretDown size={14} weight='bold' />
+              </span>
+              {OpenIdioma && (
+                <div className='absolute top-6 right-0 z-20 mt-2'>
+                  <MenuIdioma
+                    hanlderidioma={hanlderidioma}
+                    textos={[
+                      {
+                        label:
+                          controlLanguage?.navbar.MenuIdioma.Portugues ||
+                          "Português",
+                      },
+                      {
+                        label:
+                          controlLanguage?.navbar.MenuIdioma.English ||
+                          "English",
+                      },
+                      {
+                        label:
+                          controlLanguage?.navbar.MenuIdioma.Español ||
+                          "Español",
+                      },
+                    ]}
+                  />
+                </div>
+              )}
+            </li>
+
             <li>
               <ThemeIcon cor='currentColor' tamanho={24} />
             </li>
             <li className=''>
-              <button className='dark:bg-white dark:text-black bg-neutral-900 text-white rounded-lg py-2 px-3 font-semibold'>
-                {controlLanguage?.navbar.Login}
-              </button>
+              <SignedOut>
+                <SignInButton mode='modal'>
+                  <button className='dark:bg-white dark:text-black bg-neutral-900 text-white rounded-lg py-2 px-3 font-semibold'>
+                    {controlLanguage?.navbar.Login}
+                  </button>
+                </SignInButton>
+              </SignedOut>
+              <SignedIn>
+                <UserButton />
+              </SignedIn>
             </li>
           </ul>
           <div className='flex menuburger:hidden items-center'>
@@ -155,39 +216,33 @@ export default function NavBar({ LanguageType }: NavBarProps) {
             {Itmenuopen && (
               <div style={{ zIndex: 1 }}>
                 <BurguerMenu
+                  hanlderidioma={hanlderidioma}
                   handlerclose={closeMenu}
                   textos={[
                     {
                       label: controlLanguage?.navbar.Projetos || "Projetos",
-                      href: "/",
                     },
                     {
                       label: controlLanguage?.navbar.Sobre || "Sobre",
-                      href: "/",
                     },
                     {
                       label: controlLanguage?.navbar.Contato || "Contato",
-                      href: "/",
                     },
                     {
                       label: controlLanguage?.navbar.Idioma || "Idioma",
-                      href: "/",
                     },
                     {
                       label:
                         controlLanguage?.navbar.MenuIdioma.Portugues ||
                         "Português",
-                      href: "/",
                     },
                     {
                       label:
                         controlLanguage?.navbar.MenuIdioma.English || "English",
-                      href: "/en",
                     },
                     {
                       label:
                         controlLanguage?.navbar.MenuIdioma.Español || "Español",
-                      href: "/es",
                     },
                   ]}
                 />
