@@ -34,15 +34,15 @@ export default function Contato({ LanguageType }: ContatoProps) {
     handlerLanguageType(LanguageType);
   }, [LanguageType]);
 
-  const email = useUserEmail();
+  // const email = useUserEmail();
 
-  useEffect(() => {
-    if (email === null) {
-      setLogin(true);
-    } else {
-      setLogin(false);
-    }
-  }, [email]);
+  // useEffect(() => {
+  //   if (email === null) {
+  //     setLogin(true);
+  //   } else {
+  //     setLogin(false);
+  //   }
+  // }, [email]);
   return (
     // <div
     //   className={`w-screen min-h-[90%] py-[120px] bg-black ${styles.degradeContato}`}
@@ -86,16 +86,16 @@ export default function Contato({ LanguageType }: ContatoProps) {
             </div>
             {optionlogin ? (
               <>
-                <SignedOut>
-                  <SignInButton mode='modal'>
-                    <button className='my-2 p-[0.8rem] bg-white border-none rounded-xl  w-1/3 text-black font-bold text-xl'>
-                      {controlLanguage?.Contato.btnlogin}
-                    </button>
-                  </SignInButton>
+                {/* <SignedOut>
+                  <SignInButton mode='modal'> */}
+                <button className='my-2 p-[0.8rem] bg-white border-none rounded-xl  w-1/3 text-black font-bold text-xl'>
+                  {controlLanguage?.Contato.btnlogin}
+                </button>
+                {/* </SignInButton>
                 </SignedOut>
                 <SignedIn>
                   <UserButton />
-                </SignedIn>
+                </SignedIn> */}
               </>
             ) : (
               <>

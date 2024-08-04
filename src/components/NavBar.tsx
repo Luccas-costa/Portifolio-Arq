@@ -193,16 +193,18 @@ export default function NavBar({ LanguageType, hanlderidioma }: NavBarProps) {
               <ThemeIcon cor='currentColor' tamanho={24} />
             </li>
             <li className=''>
-              <SignedOut>
-                <SignInButton mode='modal'>
-                  <button className='dark:bg-white dark:text-black bg-neutral-900 text-white rounded-lg py-2 px-3 font-semibold'>
-                    {controlLanguage?.navbar.Login}
-                  </button>
-                </SignInButton>
+              {/* <SignedOut>
+                <SignInButton mode='modal'> */}
+              <button className='dark:bg-white dark:text-black bg-neutral-900 text-white rounded-lg py-2 px-3 font-semibold'>
+                {controlLanguage?.navbar.Login}
+              </button>
+              {/* </SignInButton>
               </SignedOut>
               <SignedIn>
-                <UserButton />
-              </SignedIn>
+                <div className='mt-2'>
+                  <UserButton />
+                </div>
+              </SignedIn> */}
             </li>
           </ul>
           <div className='flex menuburger:hidden items-center'>
